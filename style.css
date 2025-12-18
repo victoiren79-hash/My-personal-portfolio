@@ -2,13 +2,9 @@
   box-sizing: border-box;
 }
 
-@font-face {
-  font-family: 'MyFont';
-  src: url('fonts/MyFont-Regular.ttf') format('truetype');
-}
-
 body {
-  font-family: 'MyFont', sans-serif;
+  font-family: "Mochiy Pop One", sans-serif;
+  font-style: normal;
   padding: 0;
   margin: 0;
   height: 100vh;
@@ -567,3 +563,4 @@ div {
     width: 40px;
   }
 }
+
