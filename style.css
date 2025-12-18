@@ -185,6 +185,7 @@ html {
   z-index: 10;
 }
 .socials > a > img:hover{
+  border-radius: 50%;
 box-shadow: 0 0 5px red;
 }
 .socials > a > img {
@@ -219,10 +220,10 @@ box-shadow: 0 0 5px red;
   background: #ebd49f;
   cursor: pointer;
   flex: 1 1 300px;
-  transition: 0.2s ease-in;
+  transition: 0.1s ease-in;
 }
 .wedDev:hover{
-transform: translateY(-5px);
+transform: translateY(-10px);
 }
 .wedDev h1 {
   font-size: 1.5rem;
@@ -568,6 +569,7 @@ div {
     width: 40px;
   }
 }
+
 
 
 
