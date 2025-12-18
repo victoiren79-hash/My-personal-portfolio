@@ -184,7 +184,9 @@ html {
   gap: 1rem;
   z-index: 10;
 }
-
+.socials > a > img:hover{
+box-shadow: 0 0 5px red;
+}
 .socials > a > img {
   width: 25px;
   height: 25px;
@@ -215,9 +217,13 @@ html {
   border-radius: 10px;
   text-align: center;
   background: #ebd49f;
+  cursor: pointer;
   flex: 1 1 300px;
+  transition: 0.2s ease-in;
 }
-
+.wedDev:hover{
+transform: translateY(-5px);
+}
 .wedDev h1 {
   font-size: 1.5rem;
   margin-bottom: 1rem;
@@ -562,5 +568,6 @@ div {
     width: 40px;
   }
 }
+
 
 
