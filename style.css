@@ -1,22 +1,40 @@
-*{
+/* ===== RESET & BASE ===== */
+* {
   box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 70px;
 }
 
 body {
   font-family: "Mochiy Pop One", sans-serif;
   padding: 0;
   margin: 0;
-  height: 100vh;
+  min-height: 100vh;
   background: #F4E1B3;
   color: #1C1A27;
   overflow-x: hidden;
-  scroll-behavior: smooth;
   position: relative;
+  -webkit-overflow-scrolling: touch;
 }
 
-/* Mobile-first responsive design */
-header{
-  backdrop-filter: blur(20px); 
+a {
+  color: #1C1A27;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+  text-decoration-color: red;
+  text-underline-offset: 5px;
+}
+
+/* ===== HEADER & NAV ===== */
+header {
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
   border: none;
   z-index: 1000;
   background: transparent;
@@ -31,7 +49,6 @@ header{
   text-align: center;
 }
 
-/* Navigation Links - Responsive */
 .links {
   display: flex;
   justify-content: center;
@@ -44,26 +61,9 @@ header{
   margin: 0 0.5rem;
   font-size: 1rem;
   padding: 0.3rem 0.5rem;
-}
-
-a{
-  color: #1C1A27;
-  text-decoration: none;
-}
-
-a:hover{
-  text-decoration: underline;
-  text-decoration-color: red;
-  text-underline-offset: 5px;
-}
-
-html {
-  scroll-padding-top: 60px;
-}
-
-.links a {
   position: relative;
   text-decoration: none;
+  white-space: nowrap;
 }
 
 .links a::after {
@@ -81,8 +81,43 @@ html {
   width: 100%;
 }
 
-/* Hero Section - Responsive */
-.cont{
+/* Hamburger */
+.hamburger {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  cursor: pointer;
+  padding: 8px;
+  z-index: 1001;
+  position: absolute;
+  right: 1rem;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.hamburger span {
+  display: block;
+  width: 24px;
+  height: 3px;
+  background: #1C1A27;
+  border-radius: 2px;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.hamburger.open span:nth-child(1) {
+  transform: translateY(8px) rotate(45deg);
+}
+
+.hamburger.open span:nth-child(2) {
+  opacity: 0;
+}
+
+.hamburger.open span:nth-child(3) {
+  transform: translateY(-8px) rotate(-45deg);
+}
+
+/* ===== HERO SECTION ===== */
+.cont {
   position: relative;
   display: flex;
   justify-content: center;
@@ -90,7 +125,7 @@ html {
   align-items: center;
 }
 
-.text{
+.text {
   position: relative;
   text-align: center;
   padding-top: 100px;
@@ -104,7 +139,16 @@ html {
   padding-right: 1rem;
 }
 
-.redmoon{
+.hero-container {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}
+
+.redmoon {
   position: absolute;
   width: 200px;
   max-width: 80%;
@@ -117,19 +161,14 @@ html {
   50% { transform: scale(1.05); opacity: 0.8; }
 }
 
-/* Text Above Moon */
 .text-top {
   font-size: 2.5rem;
   font-weight: bold;
   color: black;
   letter-spacing: 2px;
   z-index: 2;
-  animation: fadeIn 1s ease forwards;
   margin-bottom: 1rem;
   line-height: 1.2;
-}
-
-.text-top {
   animation: slash 1s steps(20) forwards;
 }
 
@@ -138,7 +177,6 @@ html {
   to { clip-path: inset(0 0 0 0); }
 }
 
-/* Text Below Moon */
 .text-bottom {
   font-size: 1.8rem;
   color: black;
@@ -150,7 +188,6 @@ html {
   line-height: 1.2;
 }
 
-/* Ninja/Samurai - Front layer */
 .ninja {
   position: relative;
   width: 120px;
@@ -159,21 +196,12 @@ html {
   animation: fadeIn 2s ease forwards;
 }
 
-.hero-container {
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  width: 100%;
-}
-
 @keyframes fadeIn {
   from { opacity: 0; }
   to { opacity: 1; }
 }
 
-/* Social Icons - Responsive */
+/* ===== SOCIAL ICONS ===== */
 .socials {
   display: flex;
   flex-direction: row;
@@ -184,24 +212,27 @@ html {
   gap: 1rem;
   z-index: 10;
 }
-.socials > a > img:hover{
-  border-radius: 50%;
-box-shadow: 0 0 5px red;
-}
+
 .socials > a > img {
   width: 25px;
   height: 25px;
+  transition: filter 0.2s ease;
 }
 
-/* Skills Section - Responsive */
-#skills{
+.socials > a > img:hover {
+  border-radius: 50%;
+  box-shadow: 0 0 5px red;
+}
+
+/* ===== SKILLS SECTION ===== */
+#skills {
   text-align: center;
   margin-top: 2rem;
   padding: 0 1rem;
   position: relative;
 }
 
-.sections{
+.sections {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
@@ -209,7 +240,7 @@ box-shadow: 0 0 5px red;
   padding: 1rem;
 }
 
-.wedDev{
+.wedDev {
   margin: 0;
   border: none;
   padding: 1.5rem;
@@ -220,11 +251,14 @@ box-shadow: 0 0 5px red;
   background: #ebd49f;
   cursor: pointer;
   flex: 1 1 300px;
-  transition: 0.1s ease-in;
+  transition: transform 0.1s ease-in, box-shadow 0.2s ease;
 }
-.wedDev:hover{
-transform: translateY(-10px);
+
+.wedDev:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
 }
+
 .wedDev h1 {
   font-size: 1.5rem;
   margin-bottom: 1rem;
@@ -235,106 +269,223 @@ transform: translateY(-10px);
   margin: 0.5rem 0;
 }
 
-.active{
+.see-projects {
+  display: inline-block;
+  margin-top: 1rem;
+  font-size: 0.85rem;
+  color: red;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.wedDev:hover .see-projects {
+  opacity: 1;
+}
+
+.active {
   color: red;
 }
 
-/* Projects Section - Responsive */
-#projects{
-  text-align: center;
-  padding: 2rem 1rem;
+/* ===== PROJECTS SECTION ===== */
+#projects {
+  padding: 3rem 1.5rem;
   position: relative;
 }
 
-.projs{
+#projects > h1 {
+  margin-bottom: 2.5rem;
+  text-align: center;
+}
+
+.skill-projects {
+  margin-bottom: 2.5rem;
+  scroll-margin-top: 80px;
+}
+
+.skill-projects-title {
+  color: red;
+  font-size: 1.3rem;
+  margin-bottom: 1rem;
+  display: block;
+  text-align: center;
+}
+
+.project-cards {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1.5rem;
+}
+
+/* Project card */
+.projCard {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  width: 100%;
-  padding: 1rem;
-  gap: 1rem;
-}
-
-#backBtn, #nextBtn {
-  width: 60px;
-  height: 60px;
-  transition: .3s ease-in-out;
-  cursor: pointer;
-}
-
-.projCont{
   border: none;
-  box-shadow: 0 0 5px black;
-  border-radius: 10px;
-  margin: 1rem 0;
-  text-align: center;
-  padding: 1rem;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  border-radius: 12px;
+  padding: 0;
   width: 100%;
-  max-width: 500px;
+  max-width: 280px;
+  background: #ebd49f;
+  overflow: hidden;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  text-decoration: none;
+  color: #1C1A27;
 }
 
-#screenshot{
+.projCard:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.15);
+  text-decoration: none;
+  color: #1C1A27;
+}
+
+/* Image container - fixed aspect ratio */
+.proj-img {
   width: 100%;
-  max-width: 400px;
-  height: auto;
-  border-radius: 5px;
+  aspect-ratio: 16 / 10;
+  overflow: hidden;
+  background: #ddd3b0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-#title {
-  margin-top: 1rem;
-  font-size: 1.5rem;
+.proj-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
 }
 
-/* Contact Section - Responsive */
-#contact{
-  text-align: center;
-  padding: 2rem 1rem;
+/* Placeholder when image fails to load */
+.proj-img img[src=""] ,
+.proj-img img:not([src]),
+.proj-img img[src="white mountain.png"] {
+  /* Placeholder styling - shows while using placeholder image */
+}
+
+.projCard h3 {
+  font-size: 1.05rem;
+  margin: 0;
+  padding: 0.8rem 1rem 0.2rem 1rem;
+  font-weight: bold;
+}
+
+.projCard p {
+  font-size: 0.82rem;
+  margin: 0;
+  padding: 0 1rem 1rem 1rem;
+  opacity: 0.7;
+  line-height: 1.5;
+}
+
+/* ===== CONTACT SECTION ===== */
+#contact {
+  padding: 3rem 1rem;
   position: relative;
 }
 
-.email, .subject, .content {
+.contact-header {
+  text-align: center;
+  margin-bottom: 1.5rem;
+}
+
+#contact h1 {
+  margin: 0;
+}
+
+.form {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-  width: 100%;
+  gap: 1.2rem;
   max-width: 500px;
   margin: 0 auto;
-  padding: 0 1rem;
+  width: 100%;
 }
 
-#cont{
+.form-field {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  width: 100%;
+}
+
+.form-btn-row {
+  width: 100%;
+  text-align: center;
+  margin-top: 0.5rem;
+}
+
+.form-field label {
   color: red;
-  margin-bottom: 0.5rem;
+  margin-bottom: 0.4rem;
+  font-size: 1rem;
+  font-weight: bold;
 }
 
 #email, #subject, #msg {
   border: none;
   background-color: #ebd49f;
-  padding: 0.8rem;
-  margin: 0.5rem 0;
-  border-radius: 5px;
+  padding: 0.8rem 1rem;
+  border-radius: 8px;
   width: 100%;
   font-size: 1rem;
+  font-family: inherit;
+  color: #1C1A27;
+  outline: none;
+  transition: box-shadow 0.2s ease;
+}
+
+#email:focus, #subject:focus, #msg:focus {
+  box-shadow: 0 0 0 3px rgba(255, 0, 0, 0.15);
 }
 
 #msg {
   resize: vertical;
-  min-height: 150px;
+  min-height: 120px;
 }
 
-/* Decorative Elements - Responsive */
-.kounai45deg, .leaf1, .leaf2, .branfacingleft, .darkmountain, .whitemountain, .redmountainchain {
+.submit-btn {
+  background: red;
+  color: white;
+  border: none;
+  padding: 0.8rem 3rem;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-family: inherit;
+  cursor: pointer;
+  transition: background 0.2s ease, transform 0.2s ease;
+  margin-top: 0.5rem;
+}
+
+.submit-btn:hover {
+  background: #cc0000;
+  transform: translateY(-2px);
+}
+
+.submit-btn:active {
+  transform: translateY(0);
+}
+
+/* ===== DECORATIVE ELEMENTS ===== */
+.kounai45deg, .leaf1, .leaf2, .branfacingleft {
   position: absolute;
 }
 
 .kounai45deg {
   top: 50px;
   right: 20px;
-  animation: rotate 1.5s linear infinite;
   width: 40px;
-  display: none; /* Hide on small screens */
+  animation: rotate 1.5s linear infinite;
+  z-index: 5;
+}
+
+@keyframes rotate {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(1080deg); }
 }
 
 .leaf1, .leaf12, .leaf13, .leaf14, .leaf15, .leaf16, .leaf3 {
@@ -343,58 +494,27 @@ transform: translateY(-10px);
   max-width: 15vw;
   animation: fall 10s linear infinite;
   opacity: 0.8;
+  z-index: 0;
 }
 
 @keyframes fall {
-  0% {
-    transform: rotate(0deg);
-  }
-  100% {
-    transform: rotate(360deg);
-  }
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
 }
 
-.leaf1 {
-  top: 20px;
-  left: 20px;
-  transform: rotate(15deg);
-}
-
-.leaf12 {
-  top: 100px;
-  right: 30px;
-  transform: rotate(-40deg);
-}
-
-.leaf13 {
-  bottom: 50px;
-  left: 30px;
-  transform: rotate(70deg);
-}
-
-.leaf15 {
-  top: 50px;
-  right: 30px;
-  transform: rotate(70deg);
-}
-
-.leaf16 {
-  bottom: 50px;
-  left: 30px;
-  transform: rotate(70deg);
-}
-
-.leaf14 {
-  bottom: 50px;
-  right: 30px;
-  transform: rotate(70deg);
-}
+.leaf1 { top: 20px; left: 20px; transform: rotate(15deg); }
+.leaf12 { top: 100px; right: 30px; transform: rotate(-40deg); }
+.leaf13 { bottom: 50px; left: 30px; transform: rotate(70deg); }
+.leaf14 { bottom: 50px; right: 30px; transform: rotate(70deg); }
+.leaf15 { top: 50px; right: 30px; transform: rotate(70deg); }
+.leaf16 { bottom: 50px; left: 30px; transform: rotate(70deg); }
 
 .leaf2 {
   width: 40px;
   opacity: 0.8;
   top: 200px;
   left: 10px;
+  position: absolute;
 }
 
 .leaf23 {
@@ -402,23 +522,24 @@ transform: translateY(-10px);
   opacity: 0.8;
   top: 50px;
   right: 10px;
+  position: absolute;
 }
 
 .branfacingleft {
   width: 40px;
   top: 90%;
   left: 0;
+  position: absolute;
 }
 
-/* Shuriken Animation */
 .shuriken {
-  position: fixed;
+  position: absolute;
   top: 0;
   left: 0;
   animation: shuriken 6s linear infinite;
   opacity: 0.2;
   width: 60px;
-  display: none; /* Hide on small screens for performance */
+  z-index: 0;
 }
 
 @keyframes shuriken {
@@ -426,17 +547,8 @@ transform: translateY(-10px);
   100% { transform: translate(110vw, 110vh) rotate(1080deg); }
 }
 
-@keyframes rotate {
-  0%{
-    transform: rotate(0deg);
-  }
-  100%{
-    transform: rotate(1080deg);
-  }
-}
-
-/* Scroll Animation */
-div {
+/* ===== SCROLL ANIMATION ===== */
+.animate-on-scroll {
   animation: appear linear;
   animation-timeline: view();
   animation-range: entry 0% cover 40%;
@@ -453,41 +565,41 @@ div {
   }
 }
 
-/* Media Queries for Larger Screens */
+/* ===== RESPONSIVE: TABLET (768px+) ===== */
 @media (min-width: 768px) {
   header {
     height: 80px;
   }
-  
+
   html {
     scroll-padding-top: 80px;
   }
-  
+
   .links > a {
     margin: 0 1.5rem;
     font-size: 1.2rem;
   }
-  
+
   .text {
     padding-top: 150px;
   }
-  
+
   .redmoon {
     width: 250px;
   }
-  
+
   .text-top {
     font-size: 3.5rem;
   }
-  
+
   .text-bottom {
     font-size: 2.2rem;
   }
-  
+
   .ninja {
     width: 150px;
   }
-  
+
   .socials {
     flex-direction: column;
     left: 3%;
@@ -495,81 +607,135 @@ div {
     transform: none;
     bottom: auto;
   }
-  
+
   .wedDev {
     margin: 1rem;
     flex: 0 1 calc(50% - 2rem);
   }
-  
-  .projs {
-    flex-direction: row;
-    gap: 2rem;
-  }
-  
-  #backBtn, #nextBtn {
-    width: 80px;
-    height: 80px;
-  }
-  
-  .kounai45deg, .shuriken {
+
+  .kounai45deg {
     display: block;
   }
-  
+
+  .shuriken {
+    display: block;
+  }
+
   .leaf1, .leaf12, .leaf13, .leaf14, .leaf15, .leaf16, .leaf3 {
     width: 80px;
   }
-  
-  .email, .subject {
-    flex-direction: row;
+
+  .projCard {
+    max-width: 260px;
   }
-  
-  #email, #subject {
-    margin: 0 50px;
+
+  .skill-projects-title {
+    font-size: 1.5rem;
   }
 }
 
+/* ===== RESPONSIVE: DESKTOP (1024px+) ===== */
 @media (min-width: 1024px) {
   .wedDev {
     flex: 0 1 calc(33.333% - 2rem);
   }
-  
-  .projCont {
-    max-width: 600px;
+
+  .projCard {
+    max-width: 260px;
   }
-  
-  #screenshot {
-    max-width: 500px;
+
+  .project-cards {
+    gap: 1.5rem;
   }
 }
 
-/* For very small screens */
+/* ===== RESPONSIVE: SMALL MOBILE (under 480px) ===== */
 @media (max-width: 480px) {
   .text-top {
     font-size: 2rem;
   }
-  
+
   .text-bottom {
     font-size: 1.5rem;
   }
-  
-  .links > a {
-    font-size: 0.9rem;
-    margin: 0 0.3rem;
+
+  .redmoon {
+    width: 150px;
   }
-  
+
+  .ninja {
+    width: 90px;
+  }
+
+  .hamburger {
+    display: flex;
+  }
+
+  .links {
+    position: fixed;
+    top: 60px;
+    left: 0;
+    width: 100%;
+    background: rgba(244, 225, 179, 0.97);
+    flex-direction: column;
+    align-items: center;
+    padding: 1rem 0;
+    gap: 0;
+    transform: translateY(-120%);
+    transition: transform 0.3s ease;
+    border-bottom: 1px solid rgba(28, 26, 39, 0.1);
+  }
+
+  .links.open {
+    transform: translateY(0);
+  }
+
+  .links > a {
+    padding: 0.8rem 1.5rem;
+    width: 100%;
+    text-align: center;
+    font-size: 0.9rem;
+    margin: 0;
+  }
+
   .wedDev h1 {
     font-size: 1.2rem;
   }
-  
+
   .wedDev h2 {
     font-size: 0.9rem;
   }
-  
+
   .leaf1, .leaf12, .leaf13, .leaf14, .leaf15, .leaf16, .leaf3 {
     width: 40px;
   }
+
+  .kounai45deg {
+    width: 30px;
+    right: 10px;
+  }
+
+  .shuriken {
+    width: 40px;
+  }
+
+  .branfacingleft {
+    width: 30px;
+  }
+
+  .skill-projects-title {
+    font-size: 1.2rem;
+  }
+
+  .projCard {
+    max-width: 100%;
+  }
+
+  .projCard h3 {
+    font-size: 0.95rem;
+  }
+
+  .projCard p {
+    font-size: 0.8rem;
+  }
 }
-
-
-
-

@@ -6,116 +6,193 @@
     <title>Victoire's portfolio</title>
     <link rel="stylesheet" href="style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Mochiy+Pop+One&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Mochiy+Pop+One&display=swap" rel="stylesheet">
 </head>
 <body>
     <header>
-        <div class="links">
+        <div class="hamburger" id="hamburger" aria-label="Toggle menu">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+        <div class="links" id="navLinks">
             <a href="#home" class="active">Home</a>
             <a href="#skills">Skills</a>
             <a href="#projects">Projects</a>
             <a href="#contact">Contact me</a>
         </div>
     </header>
+
     <div class="cont" id="home">
-    <div class="socials">
-        <a href=""><img src="github-sign.png"></a>
-        <a href=""><img src="whatsapp.png"></a>
-        <a href=""><img src="envelope.png"></a>
-        <a href=""><img src="linkedin.png"></a>
+        <div class="socials">
+            <!-- EDIT: Add your social media links below -->
+            <a href="https://github.com/victoiren79-hash" aria-label="GitHub"><img src="github-sign.png" alt="GitHub"></a>
+            <a href="https://wa.me/YOUR_PHONE_NUMBER" aria-label="WhatsApp"><img src="whatsapp.png" alt="WhatsApp"></a>
+            <a href="mailto:YOUR_EMAIL@example.com" aria-label="Email"><img src="envelope.png" alt="Email"></a>
+            <a href="https://linkedin.com/in/YOUR_USERNAME" aria-label="LinkedIn"><img src="linkedin.png" alt="LinkedIn"></a>
+        </div>
+        <div class="text">
+            <div class="hero-container">
+                <img src="redcircle.png" alt="red moon" class="redmoon">
+                <!-- EDIT: Change your greeting and name below -->
+                <h1 class="text-top">Hello Ninja</h1>
+                <h2 class="text-bottom">I'm Victoire</h2>
+            </div>
+            <img src="ninja.png" alt="ninja" class="ninja">
+        </div>
     </div>
-    <div class="text">
-    <div class="hero-container">
-        <img src="redcircle.png" alt="red moon" class="redmoon">
-        <h1 class="text-top">Hello Ninja</h1>
-        <h2 class="text-bottom">I'm Victoire</h2>
-    </div>
-    <img src="ninja.png" class="ninja">
-</div>
-    </div>
-   
-    <img src="leaf1.png" class="leaf1">
-    <img src="leaf1.png" class="leaf12">
-    <img src="leaf1.png" class="leaf13">
-    <img src="leaf1.png" class="leaf14">
-    
-    
-    
-    <img src="branch facing left.png" class="branfacingleft">
+
+    <img src="leaf1.png" class="leaf12" alt="">
+    <img src="leaf1.png" class="leaf13" alt="">
+    <img src="leaf1.png" class="leaf14" alt="">
+    <img src="branch facing left.png" class="branfacingleft" alt="">
 
     <div id="skills">
-        <img src="leaf2.png" class="leaf23">
-        <img src="leaf2.png" class="leaf2">
-        <img src="shuriken.png" class="shuriken">
+        <img src="leaf2.png" class="leaf23" alt="">
+        <img src="leaf2.png" class="leaf2" alt="">
+        <img src="shuriken.png" class="shuriken" alt="">
         <h1>My skills</h1>
         <div class="sections">
-            <div class="wedDev">
+            <div class="wedDev animate-on-scroll" data-target="webdev-projects">
                 <h1 class="active">Full stack web dev</h1>
                 <h2>HTML CSS JS</h2>
-                 <h2>React</h2>
-                <h2>Boostrap</h2>
+                <h2>React</h2>
+                <h2>Bootstrap</h2>
                 <h2>Tailwind</h2>
+                <span class="see-projects">See projects ↓</span>
             </div>
-            <div class="wedDev">
+            <div class="wedDev animate-on-scroll" data-target="design-projects">
                 <h1 class="active">Design</h1>
                 <h2>Graphic design</h2>
                 <h2>Video editing</h2>
-                <h2>3D modeling with blender</h2>
+                <h2>3D modeling with Blender</h2>
+                <span class="see-projects">See projects ↓</span>
             </div>
-            <div class="wedDev">
+            <div class="wedDev animate-on-scroll" data-target="cyber-projects">
                 <h1 class="active">Cyber security</h1>
-                <h2>Treat detection and response</h2>
+                <h2>Threat detection and response</h2>
                 <h2>Network security</h2>
+                <span class="see-projects">See projects ↓</span>
             </div>
-            <div class="wedDev">
+            <div class="wedDev animate-on-scroll" data-target="game-projects">
                 <h1 class="active">Game development</h1>
                 <h2>Unity</h2>
                 <h2>Scratch</h2>
+                <span class="see-projects">See projects ↓</span>
             </div>
-            <div class="wedDev">
+            <div class="wedDev animate-on-scroll" data-target="tools-projects">
                 <h1 class="active">Tools</h1>
-                <h2>git</h2>
-                <h2>github</h2>
+                <h2>Git</h2>
+                <h2>GitHub</h2>
                 <h2>Vercel</h2>
+                <span class="see-projects">See projects ↓</span>
             </div>
         </div>
     </div>
-    
+
     <div id="projects">
-        <img src="leaf1.png" class="leaf15">
-    <img src="leaf1.png" class="leaf16">
+        <img src="leaf1.png" class="leaf15" alt="">
+        <img src="leaf1.png" class="leaf16" alt="">
         <h1>My projects</h1>
-        <div class="projs">
-            <img id="backBtn" src="back.png">
-            <div class="projCont">
-                <img src="white mountain.png" id="screnshot">
-                <h2 id="title">White moountain</h2>
+
+        <!-- ==================== WEB DEV PROJECTS ==================== -->
+        <div class="skill-projects" id="webdev-projects">
+            <h2 class="skill-projects-title">Full stack web dev</h2>
+            <div class="project-cards">
+                <!-- CARD START - copy this block to add more projects -->
+                <a href="https://your-project-link.com" class="projCard" target="_blank">
+                    <div class="proj-img">
+                        <img src="white mountain.png" alt="White Mountain">
+                    </div>
+                    <h3>White Mountain</h3>
+                    <p>A responsive landing page built with HTML, CSS and JavaScript.</p>
+                </a>
+                <!-- CARD END -->
             </div>
-            <img src="next.png" id="nextBtn">
+        </div>
+
+        <!-- ==================== DESIGN PROJECTS ==================== -->
+        <div class="skill-projects" id="design-projects">
+            <h2 class="skill-projects-title">Design</h2>
+            <div class="project-cards">
+                <a href="https://your-project-link.com" class="projCard" target="_blank">
+                    <div class="proj-img">
+                        <img src="white mountain.png" alt="Design project">
+                    </div>
+                    <h3>Design project</h3>
+                    <p>A short description of your design project goes here.</p>
+                </a>
+            </div>
+        </div>
+
+        <!-- ==================== CYBER SECURITY PROJECTS ==================== -->
+        <div class="skill-projects" id="cyber-projects">
+            <h2 class="skill-projects-title">Cyber security</h2>
+            <div class="project-cards">
+                <a href="https://your-project-link.com" class="projCard" target="_blank">
+                    <div class="proj-img">
+                        <img src="white mountain.png" alt="Cyber project">
+                    </div>
+                    <h3>Cyber project</h3>
+                    <p>A short description of your cyber security project goes here.</p>
+                </a>
+            </div>
+        </div>
+
+        <!-- ==================== GAME DEV PROJECTS ==================== -->
+        <div class="skill-projects" id="game-projects">
+            <h2 class="skill-projects-title">Game development</h2>
+            <div class="project-cards">
+                <a href="https://your-project-link.com" class="projCard" target="_blank">
+                    <div class="proj-img">
+                        <img src="white mountain.png" alt="Game project">
+                    </div>
+                    <h3>Game project</h3>
+                    <p>A short description of your game project goes here.</p>
+                </a>
+            </div>
+        </div>
+
+        <!-- ==================== TOOLS PROJECTS ==================== -->
+        <div class="skill-projects" id="tools-projects">
+            <h2 class="skill-projects-title">Tools</h2>
+            <div class="project-cards">
+                <a href="https://your-project-link.com" class="projCard" target="_blank">
+                    <div class="proj-img">
+                        <img src="white mountain.png" alt="Tools project">
+                    </div>
+                    <h3>Tools project</h3>
+                    <p>A short description of your tools project goes here.</p>
+                </a>
+            </div>
         </div>
     </div>
 
     <div id="contact">
-         <img src="kounai 45deg right.png" class="kounai45deg">
-         
-        <h1>Contact me</h1>
-        <img src="leaf1.png" class="leaf3">
-    <img src="leaf1.png" class="leaf3">
-    <div class="form">
-        <div class="email"><h2 id="cont">Email</h2><input type="email" id="email" placeholder="vigo@gmail.com"></div>
-        <div class="subject"><h2 id="cont">Subject</h2><input type="text" id="subject" placeholder="Let's have a coffee"></div>
-        <div class="content">
-            <h2 id="cont">Content</h2>
-            <textarea id="msg" rows="10" cols="40" placeholder="Have you watched Naruto?"></textarea>
+        <img src="kounai 45deg right.png" class="kounai45deg" alt="">
+        <div class="contact-header">
+            <h1>Contact me</h1>
         </div>
+        <form class="form" onsubmit="return false;">
+            <div class="form-field">
+                <label for="email">Email</label>
+                <input type="email" id="email" placeholder="vigo@gmail.com" required>
+            </div>
+            <div class="form-field">
+                <label for="subject">Subject</label>
+                <input type="text" id="subject" placeholder="Let's have a coffee" required>
+            </div>
+            <div class="form-field">
+                <label for="msg">Content</label>
+                <textarea id="msg" rows="6" placeholder="Have you watched Naruto?" required></textarea>
+            </div>
+            <div class="form-btn-row">
+                <button type="submit" class="submit-btn">Send</button>
+            </div>
+        </form>
     </div>
-        </div>
-    </div>
+
     <script src="main.js"></script>
 </body>
-
 </html>
-
-
-
